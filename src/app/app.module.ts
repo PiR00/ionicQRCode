@@ -11,6 +11,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { QrcodeProvider } from '../providers/qrcode/qrcode';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     BarcodeScanner,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    QrcodeProvider
   ]
 })
 export class AppModule {}
