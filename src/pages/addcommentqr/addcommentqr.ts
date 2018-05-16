@@ -19,10 +19,11 @@ export class AddcommentqrPage {
   id: any;
   description: string;
   title: string;
-  comments: Array<Comment>;
+  comments: Array<any>;
   comment: Comment;
   constructor(public QrcodeProvider:QrcodeProvider, public navCtrl: NavController, public navParams: NavParams) {
-    this.comments = this.QrcodeProvider.list();
+    //this.comments = this.QrcodeProvider.list();
+    this.comments = [];
     // console.log(this.navParams.get('idTag'));
     this.QrcodeProvider.get(this.navParams.get('idTag')).then( (doc) => {
       console.log(doc.data());
@@ -33,16 +34,12 @@ export class AddcommentqrPage {
 
     this.QrcodeProvider.getComments(this.navParams.get('idTag')).then((collection) => {
       for (let doc of collection.docs) {
-        this.comment.content = doc.data().content;
-        this.comment.user = doc.data().username;
-        this.comments.push(this.comment);
-      }  
+        this.comments.push(doc.data());
+      }
     });
 
   }
-
-
-
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddcommentqrPage');
   }

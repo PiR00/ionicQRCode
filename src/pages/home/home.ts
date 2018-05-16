@@ -10,22 +10,34 @@ import { AddcommentqrPage } from '../addcommentqr/addcommentqr';
 export class HomePage {
 
   barcodeScanner: any;
+  champ:string;
 
   constructor(public navCtrl: NavController, private barcode: BarcodeScanner) {
     this.barcodeScanner = barcode;
+    this.champ = "8000500290767";
   }
 
-  scan(){
-    this.barcodeScanner.scan().then(barcodeData => {
-      console.log('Barcode data', barcodeData);
+  scan(champ){
+
+    if(champ){
       this.navCtrl.push(
         AddcommentqrPage,
         {
-          idTag: barcodeData.text
+          idTag: champ
         });
-     }).catch(err => {
-         console.log('Error', err);
-     });
+    }else{
+      this.barcodeScanner.scan().then(barcodeData => {
+        console.log('Barcode data', barcodeData);
+        this.navCtrl.push(
+          AddcommentqrPage,
+          {
+            idTag: barcodeData.text
+          });
+       }).catch(err => {
+           console.log('Error', err);
+       });
+    }
+
   }
 
 }
