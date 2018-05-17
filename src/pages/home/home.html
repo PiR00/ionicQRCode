@@ -18,4 +18,14 @@
       <input type="text" [(ngModel)]="champ" >
   </ion-item>
 
+  <ion-list>
+    {{tabTag | json}}
+    <!-- <ion-item  *ngFor="let item of tabTag" >
+
+          <ion-label>{{item.title}} x {{item.valeur}}</ion-label>
+          <ion-checkbox color="dark" checked="{{item.state}}"></ion-checkbox>
+
+      </ion-item> -->
+  </ion-list>
+
 </ion-content>

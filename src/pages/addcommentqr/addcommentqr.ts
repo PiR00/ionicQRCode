@@ -21,6 +21,7 @@ export class AddcommentqrPage {
   title: string;
   comments: Array<any>;
   comment: Comment;
+
   constructor(public QrcodeProvider:QrcodeProvider, public navCtrl: NavController, public navParams: NavParams) {
     //this.comments = this.QrcodeProvider.list();
     this.comments = [];
@@ -39,7 +40,7 @@ export class AddcommentqrPage {
     });
 
   }
-  
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddcommentqrPage');
   }
