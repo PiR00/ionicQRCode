@@ -9,6 +9,7 @@ import { AddcommentqrPage } from '../pages/addcommentqr/addcommentqr';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { QRCodeModule } from 'angularx-qrcode';
+import { FormsModule } from '@angular/forms';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { QrcodeProvider } from '../providers/qrcode/qrcode';
@@ -24,6 +25,7 @@ import { QrcodeProvider } from '../providers/qrcode/qrcode';
   imports: [
     BrowserModule,
     QRCodeModule,
+    FormsModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
