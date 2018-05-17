@@ -39,32 +39,22 @@ export class HomePage {
     });
   }
 
-  scan(champ){
-
-    if(champ){
+  scan(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      // console.log('Barcode data', barcodeData);
       this.navCtrl.push(
         AddcommentqrPage,
         {
-          idTag: champ
+          idTag: barcodeData.text
         });
-    }else{
-      this.barcodeScanner.scan().then(barcodeData => {
-        // console.log('Barcode data', barcodeData);
-        this.navCtrl.push(
-          AddcommentqrPage,
-          {
-            idTag: barcodeData.text
-          });
-       }).catch(err => {
-           console.log('Error', err);
-       });
-    }
-
+     }).catch(err => {
+         console.log('Error', err);
+     });
   }
 
   addTag(title, description){
     this.QrcodeProvider.setTag(title, description).then((doc) => {
-        this.tabTag = [];  
+        this.tabTag = [];
         this.getAll();
       } );
     this.title = "";
