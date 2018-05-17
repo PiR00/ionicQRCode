@@ -21,7 +21,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, private barcode: BarcodeScanner,public QrcodeProvider:QrcodeProvider, public navParams: NavParams) {
     this.barcodeScanner = barcode;
-    this.champ = "8000500290767";
+    this.champ = "";
     this.tabTag =  [] ;
 
 
