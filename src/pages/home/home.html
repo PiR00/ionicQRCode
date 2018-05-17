@@ -19,13 +19,12 @@
   </ion-item>
 
   <ion-list>
-    {{tabTag | json}}
-    <!-- <ion-item  *ngFor="let item of tabTag" >
+    <!-- {{tabTag | json}} -->
+    <ion-item  *ngFor="let item of tabTag" >
 
-          <ion-label>{{item.title}} x {{item.valeur}}</ion-label>
-          <ion-checkbox color="dark" checked="{{item.state}}"></ion-checkbox>
+          <ion-label>{{item.title}}</ion-label>
 
-      </ion-item> -->
+      </ion-item>
   </ion-list>
 
 </ion-content>
