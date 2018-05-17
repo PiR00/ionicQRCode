@@ -32,16 +32,29 @@ export class AddcommentqrPage {
       this.description = doc.data().description;
       this.title = doc.data().title;
       this.qrdata = this.id;
+      this.loadComments(this.id);
     });
     
     // this.qrcode = this.QrcodeProvider.encode(this.navParams.get('idTag'), this.barcodeScanner);
         
-    this.QrcodeProvider.getComments(this.navParams.get('idTag')).then((collection) => {
+    /*this.QrcodeProvider.getComments(this.navParams.get('idTag')).then((collection) => {
+      for (let doc of collection.docs) {
+        this.comments.push(doc.data());
+      }
+    });*/
+
+    
+
+  }
+
+  loadComments(TagId){
+    console.log(TagId);
+    this.QrcodeProvider.getComments(TagId).then((collection) => {
+      this.comments = [];
       for (let doc of collection.docs) {
         this.comments.push(doc.data());
       }
     });
-
   }
 
   ionViewDidLoad() {
@@ -49,7 +62,10 @@ export class AddcommentqrPage {
   }
 
   sendComment(name, comment){
-    this.QrcodeProvider.setComment(name, comment, this.navParams.get('idTag'));
+    this.QrcodeProvider
+      .setComment(name, comment,this.id).then((doc) => {
+        this.loadComments(this.id);
+      } );
     this.nameComment = "";
     this.commentaire = "";
   }
