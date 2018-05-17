@@ -34,16 +34,16 @@ export class AddcommentqrPage {
       this.qrdata = this.id;
       this.loadComments(this.id);
     });
-    
+
     // this.qrcode = this.QrcodeProvider.encode(this.navParams.get('idTag'), this.barcodeScanner);
-        
+
     /*this.QrcodeProvider.getComments(this.navParams.get('idTag')).then((collection) => {
       for (let doc of collection.docs) {
         this.comments.push(doc.data());
       }
     });*/
 
-    
+
 
   }
 
@@ -61,9 +61,9 @@ export class AddcommentqrPage {
     // console.log('ionViewDidLoad AddcommentqrPage');
   }
 
-  sendComment(name, comment){
+  sendComment(username, comment, timestamp){
     this.QrcodeProvider
-      .setComment(name, comment,this.id).then((doc) => {
+      .setComment(username, comment,this.id).then((doc) => {
         this.loadComments(this.id);
       } );
     this.nameComment = "";

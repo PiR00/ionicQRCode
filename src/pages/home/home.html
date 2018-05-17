@@ -10,11 +10,15 @@
 <ion-content padding>
   <h3>Scanner</h3>
   <ion-card>
+    <ion-item>
       <button
         ion-button
-        left
+        full
+        large
         (click)="scan(champ)"
+        color="secondary"
         >Scanner</button>
+    </ion-item>
   </ion-card>
     <ion-card>
       <ion-item>
@@ -23,11 +27,13 @@
       <ion-item>
       Description <input type="text" [(ngModel)]="description" >
       </ion-item>
+      <ion-item>
       <button
         ion-button
         left
         (click)="addTag(title, description)"
         >Ajouter tag</button>
+      </ion-item>
     </ion-card>
 
   <!-- <div class="" *ngFor="let item of tabTag">

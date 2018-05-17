@@ -58,13 +58,11 @@ export class HomePage {
        }).catch(err => {
            console.log('Error', err);
        });
-    }
-
   }
-
+}
   addTag(title, description){
     this.QrcodeProvider.setTag(title, description).then((doc) => {
-        this.tabTag = [];  
+        this.tabTag = [];
         this.getAll();
       } );
     this.title = "";

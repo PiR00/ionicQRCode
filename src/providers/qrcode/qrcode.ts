@@ -53,14 +53,20 @@ export class QrcodeProvider {
   }
 
   setComment(username, content, id){
+
     const db = firebase.firestore();
     /*this.comment = new Comment;
     this.comment.content = content;
     this.comment.user = username;*/
     //console.log(this.comment);
+
+    var timestamp = new Date();
+    timestamp.toLocaleString();
+
     return db.collection('tag').doc(id).collection('comments').add({
       content: content,
-      username: username
+      username: username,
+      timestamp: timestamp
     });
   }
 
