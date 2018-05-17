@@ -60,7 +60,7 @@ export class QrcodeProvider {
     //console.log(this.comment);
     return db.collection('tag').doc(id).collection('comments').add({
       content: content,
-      user: username
+      username: username
     });
   }
 
@@ -78,7 +78,7 @@ export class QrcodeProvider {
     //return db.collection("comments").get();
   }
 
-  
+
   encode(id, barcode){
     this.barcodeScanner = barcode;
     this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE, id).then((encodedData) => {
@@ -86,7 +86,7 @@ export class QrcodeProvider {
 
   }, (err) => {
       console.log("Error occured : " + err);
-  });   
+  });
   }
 
 }

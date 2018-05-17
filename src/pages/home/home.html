@@ -3,31 +3,33 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home test</ion-title>
+    <ion-title>Scanner votre code barre ! :)</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>QRCode Project</h3>
-  <ion-item>
-    <button
-      ion-button
-      left
-      (click)="scan(champ)"
-      >Scanner</button>
-      <input type="text" [(ngModel)]="champ" >
-  </ion-item>
-
-  <ion-item>
-    <label>Titre</label><input type="text" [(ngModel)]="title" >
-    <label>Description</label><input type="text" [(ngModel)]="description" >
+  <h3>Scanner</h3>
+  <ion-card>
+      <button
+        ion-button
+        left
+        (click)="scan(champ)"
+        >Scanner</button>
+  </ion-card>
+    <ion-card>
+      <ion-item>
+        Titre <input type="text" [(ngModel)]="title" >
+      </ion-item>
+      <ion-item>
+      Description <input type="text" [(ngModel)]="description" >
+      </ion-item>
       <button
         ion-button
         left
         (click)="addTag(title, description)"
         >Ajouter tag</button>
-    </ion-item>
-  
+    </ion-card>
+
   <!-- <div class="" *ngFor="let item of tabTag">
     <qrcode [qrdata]='item.firebaseId' [size]="256" [level]="'M'"></qrcode>
   </div> -->

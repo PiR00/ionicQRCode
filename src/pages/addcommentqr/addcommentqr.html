@@ -14,17 +14,44 @@
 
 
 <ion-content padding>
-  {{id}}
-  {{title}}
-  {{description}}
-  <qrcode [qrdata]='qrdata' [size]="256" [level]="'M'"></qrcode>
-  {{comments | json}}
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        {{title}}
+      </ion-card-title>
 
-  <br /><label>Nom : </label><input type="text" [(ngModel)]="nameComment"><br />
-  <label>Commentaire : </label><input type="text" [(ngModel)]="commentaire">
-  <br /><button
-      ion-button
-      left
-      (click)="sendComment(nameComment, commentaire)"
-      >Commenter</button>
+      <qrcode [qrdata]='qrdata' [size]="256" [level]="'M'"></qrcode>
+      <ion-card-title> Description : </ion-card-title>
+      <p>
+        {{description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-list *ngFor="let comment of comments">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/imgs/profile-icon.png">
+        </ion-avatar>
+        <h2>{{comment.username}}</h2>
+        <p>{{comment.content}}</p>
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <h1> Ajouter un commentaire </h1>
+    </ion-item>
+    <ion-item>Nom : <input type="text" [(ngModel)]="nameComment"></ion-item>
+    <ion-item>Commentaire : <input type="text" [(ngModel)]="commentaire"></ion-item>
+    <ion-item>
+    <button
+        ion-button
+        left
+        (click)="sendComment(nameComment, commentaire)"
+        >Commenter</button>
+    </ion-item>    
+  </ion-card>
 </ion-content>
