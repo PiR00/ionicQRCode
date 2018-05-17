@@ -18,13 +18,30 @@
       <input type="text" [(ngModel)]="champ" >
   </ion-item>
 
-  <ion-list>
-    <!-- {{tabTag | json}} -->
+  <!-- <div class="" *ngFor="let item of tabTag">
+    <qrcode [qrdata]='item.firebaseId' [size]="256" [level]="'M'"></qrcode>
+  </div> -->
+  <!-- <ion-list>
+    {{tabTag | json}}
     <ion-item  *ngFor="let item of tabTag" >
 
-          <ion-label>{{item.title}}</ion-label>
+      <qrcode [qrdata]='123' [size]="256" [level]="'M'"></qrcode>
+      <ion-label>{{item.title}} : {{item.firebaseId}}</ion-label>
 
-      </ion-item>
-  </ion-list>
+    </ion-item>
+  </ion-list> -->
+
+  <ion-card *ngFor="let item of tabTag">
+  <qrcode [qrdata]='item.firebaseId' [size]="256" [level]="'M'"></qrcode>
+  <ion-card-content>
+    <ion-card-title>
+      {{item.title}}
+      </ion-card-title>
+    <p>
+      {{item.description}}
+    </p>
+  </ion-card-content>
+</ion-card>
+
 
 </ion-content>
