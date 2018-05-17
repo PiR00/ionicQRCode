@@ -21,6 +21,7 @@ export class HomePage {
     this.champ = "8000500290767";
     this.tabTag =  [] ;
 
+
     QrcodeProvider.getAll().then( (collection) => {
       for(var doc of collection.docs) {
         var tag = doc.data();

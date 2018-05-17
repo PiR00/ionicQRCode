@@ -31,7 +31,7 @@
     </ion-item>
   </ion-list> -->
 
-  <ion-card *ngFor="let item of tabTag">
+  <ion-card *ngFor="let item of tabTag" (click)="scan(item.firebaseId)">
   <qrcode [qrdata]='item.firebaseId' [size]="256" [level]="'M'"></qrcode>
   <ion-card-content>
     <ion-card-title>
