@@ -58,8 +58,7 @@ export class HomePage {
        }).catch(err => {
            console.log('Error', err);
        });
-
-
+     }
   }
 
   addTag(title, description){

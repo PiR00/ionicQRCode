@@ -59,10 +59,14 @@ export class QrcodeProvider {
     this.comment.content = content;
     this.comment.user = username;*/
     //console.log(this.comment);
+
+    var timestamp = new Date();
+    timestamp.toLocaleString();
+
     return db.collection('tag').doc(id).collection('comments').add({
       content: content,
       username: username,
-      timestamp: Date.now()
+      timestamp: timestamp
     });
   }
 
