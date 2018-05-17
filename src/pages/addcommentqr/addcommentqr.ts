@@ -63,7 +63,7 @@ export class AddcommentqrPage {
 
   sendComment(username, comment, timestamp){
     this.QrcodeProvider
-      .setComment(username, comment,this.id, timestamp).then((doc) => {
+      .setComment(username, comment,this.id).then((doc) => {
         this.loadComments(this.id);
       } );
     this.nameComment = "";
