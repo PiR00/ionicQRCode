@@ -61,7 +61,7 @@ export class HomePage {
 
 
   }
-
+}
   addTag(title, description){
     this.QrcodeProvider.setTag(title, description).then((doc) => {
         this.tabTag = [];
