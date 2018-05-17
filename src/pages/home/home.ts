@@ -27,7 +27,7 @@ export class HomePage {
         });
     }else{
       this.barcodeScanner.scan().then(barcodeData => {
-        console.log('Barcode data', barcodeData);
+        // console.log('Barcode data', barcodeData);
         this.navCtrl.push(
           AddcommentqrPage,
           {

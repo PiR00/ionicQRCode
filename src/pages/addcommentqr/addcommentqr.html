@@ -14,7 +14,10 @@
 
 
 <ion-content padding>
+  {{id}}
   {{title}}
   {{description}}
+  <qrcode [qrdata]='QRCode' [size]="256" [level]="'M'"></qrcode>
   {{comments | json}}
+
 </ion-content>

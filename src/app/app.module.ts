@@ -8,7 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { AddcommentqrPage } from '../pages/addcommentqr/addcommentqr';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-
+import { QRCodeModule } from 'angularx-qrcode';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { QrcodeProvider } from '../providers/qrcode/qrcode';
@@ -23,6 +23,7 @@ import { QrcodeProvider } from '../providers/qrcode/qrcode';
   ],
   imports: [
     BrowserModule,
+    QRCodeModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
