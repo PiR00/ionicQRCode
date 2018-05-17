@@ -20,4 +20,11 @@
   <qrcode [qrdata]='qrdata' [size]="256" [level]="'M'"></qrcode>
   {{comments | json}}
 
+  <br /><label>Nom : </label><input type="text" [(ngModel)]="nameComment"><br />
+  <label>Commentaire : </label><input type="text" [(ngModel)]="commentaire">
+  <br /><button
+      ion-button
+      left
+      (click)="sendComment(name, comment)"
+      >Commenter</button>
 </ion-content>

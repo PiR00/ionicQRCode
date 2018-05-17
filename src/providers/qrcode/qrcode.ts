@@ -20,7 +20,7 @@ export class QrcodeProvider {
   listData: Array<Comment>;
   qrCode: Tag;
   barcodeScanner: any;
-
+  comment: Comment;
   constructor(/*public http: HttpClient*/) {
     firebase.initializeApp(Configuration.firebase);
   }
@@ -50,6 +50,17 @@ export class QrcodeProvider {
         return article;
       }
     }*/
+  }
+
+  setComment(username, content, id){
+    const db = firebase.firestore();
+    this.comment = new Comment;
+    this.comment.content = content;
+    this.comment.user = username;
+    db.collection('comment').add(this.comment).then( (docRef) => { 
+      console.log(docRef.id) 
+    });
+    db.collection('tag').doc(id).set(this.comment).then().catch();       
   }
 
   getComments(TagId) {
