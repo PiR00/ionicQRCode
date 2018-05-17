@@ -22,14 +22,12 @@ export class AddcommentqrPage {
   title: string;
   comments: Array<any>;
   comment: Comment;
-  QRCode: string = null;
   constructor(public QrcodeProvider:QrcodeProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.comments = [];
     this.QrcodeProvider.get(this.navParams.get('idTag')).then( (doc) => {
       this.id = this.navParams.get('idTag');
       this.description = doc.data().description;
       this.title = doc.data().title;
-      this.QRCode = this.id;
     });
     
     // this.qrcode = this.QrcodeProvider.encode(this.navParams.get('idTag'), this.barcodeScanner);
@@ -41,7 +39,7 @@ export class AddcommentqrPage {
     });
 
   }
-  
+
   ionViewDidLoad() {
     // console.log('ionViewDidLoad AddcommentqrPage');
   }

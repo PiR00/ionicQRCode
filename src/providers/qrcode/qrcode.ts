@@ -29,6 +29,17 @@ export class QrcodeProvider {
     return this.listData;
   }
 
+  getAll() {
+    const db = firebase.firestore();
+
+    return db.collection("tag").get();
+    /*for(let article of this.articles) {
+      if(article.id == id) {
+        return article;
+      }
+    }*/
+  }
+
   get(id) {
     const db = firebase.firestore();
 
