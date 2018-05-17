@@ -39,17 +39,27 @@ export class HomePage {
     });
   }
 
-  scan(){
-    this.barcodeScanner.scan().then(barcodeData => {
-      // console.log('Barcode data', barcodeData);
+  scan(champ){
+
+    if(champ){
       this.navCtrl.push(
         AddcommentqrPage,
         {
-          idTag: barcodeData.text
+          idTag: champ
         });
-     }).catch(err => {
-         console.log('Error', err);
-     });
+    }else{
+      this.barcodeScanner.scan().then(barcodeData => {
+        // console.log('Barcode data', barcodeData);
+        this.navCtrl.push(
+          AddcommentqrPage,
+          {
+            idTag: barcodeData.text
+          });
+       }).catch(err => {
+           console.log('Error', err);
+       });
+
+
   }
 
   addTag(title, description){
