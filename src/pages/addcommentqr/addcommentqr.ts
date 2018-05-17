@@ -21,6 +21,9 @@ export class AddcommentqrPage {
   title: string;
   comments: Array<any>;
   comment: Comment;
+
+  nameComment: string;
+  commentaire: string;
   public qrdata: string = null;
   constructor(public QrcodeProvider:QrcodeProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.comments = [];
@@ -45,4 +48,9 @@ export class AddcommentqrPage {
     // console.log('ionViewDidLoad AddcommentqrPage');
   }
 
+  sendComment(name, comment){
+    this.QrcodeProvider.setComment(name, comment, this.navParams.get('idTag'));
+    this.nameComment = "";
+    this.commentaire = "";
+  }
 }
