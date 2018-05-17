@@ -18,6 +18,16 @@
       <input type="text" [(ngModel)]="champ" >
   </ion-item>
 
+  <ion-item>
+    <label>Titre</label><input type="text" [(ngModel)]="title" >
+    <label>Description</label><input type="text" [(ngModel)]="description" >
+      <button
+        ion-button
+        left
+        (click)="addTag(title, description)"
+        >Ajouter tag</button>
+    </ion-item>
+  
   <!-- <div class="" *ngFor="let item of tabTag">
     <qrcode [qrdata]='item.firebaseId' [size]="256" [level]="'M'"></qrcode>
   </div> -->

@@ -16,20 +16,27 @@ export class HomePage {
   champ:string;
   tabTag:Array<any>;
 
+  description: string;
+  title: string;
+
   constructor(public navCtrl: NavController, private barcode: BarcodeScanner,public QrcodeProvider:QrcodeProvider, public navParams: NavParams) {
     this.barcodeScanner = barcode;
     this.champ = "8000500290767";
     this.tabTag =  [] ;
 
 
-    QrcodeProvider.getAll().then( (collection) => {
+    this.getAll();
+
+  }
+
+  getAll(){
+    this.QrcodeProvider.getAll().then( (collection) => {
       for(var doc of collection.docs) {
         var tag = doc.data();
         tag.firebaseId = doc.id;
         this.tabTag.push(tag);
       }
     });
-
   }
 
   scan(champ){
@@ -53,6 +60,15 @@ export class HomePage {
        });
     }
 
+  }
+
+  addTag(title, description){
+    this.QrcodeProvider.setTag(title, description).then((doc) => {
+        this.tabTag = [];  
+        this.getAll();
+      } );
+    this.title = "";
+    this.description = "";
   }
 
 }

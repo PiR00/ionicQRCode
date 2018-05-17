@@ -64,6 +64,14 @@ export class QrcodeProvider {
     });
   }
 
+  setTag(title, description){
+    const db = firebase.firestore();
+    return db.collection('tag').add({
+      title: title,
+      description: description
+    });
+  }
+
   getComments(TagId) {
     const db = firebase.firestore();
     return db.collection('tag').doc(TagId).collection('comments').get();
